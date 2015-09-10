@@ -36,7 +36,7 @@
     "babel-core": "5.6.19",
     "babel-runtime": "^5.6.19",
     "chalk": "^1.1.0",
-    "escodegen": "drd/escodegen#wallaby",
+    "escodegen": "zbyte64/escodegen#mergeupdates",
     "glob-to-regexp": "0.0.2",
     "immutable": "^3.7.3",
     "minimist": "^1.1.1",
