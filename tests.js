@@ -1,7 +1,11 @@
 "use strict";
 
 var jsxlate = require('./jsxlate');
+var I18N = require('./lib/components').I18N;
+var setMessages = require('./lib/components').setMessages;
 var I = require('immutable');
+var LegitTest = require('legit-tests');
+var React = require('react');
 
 var extractions = {
     'Hello': [],
@@ -270,4 +274,18 @@ exports.testMessageNodeTransformation = function(test) {
         });
     });
     test.done();
+};
+
+exports.testI18NRender = function(test) {
+    setMessages({
+      "Hello World": function() {return React.DOM.span("Hello World")}
+    });
+
+    LegitTest(React.createElement(I18N, null, "Hello World"))
+      .test(({helpers, component}) => {
+        test.equal(component.props.message, "Hello World")
+        var markup = React.renderToStaticMarkup(component);
+        test.equal(markup, '<span>Hello World</span>');
+        test.done()
+      });
 };
