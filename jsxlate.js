@@ -57,11 +57,7 @@ import {Format} from './components.jsx';
 
 Error.stackTraceLimit = Infinity;
 
-try {
-    var babel = require('babel');
-} catch(e) {
-    var babel = require('babel-core/browser');
-}
+var babel = require('babel-core');
 var escodegen = require('escodegen-wallaby');
 var I = require('immutable');
 
